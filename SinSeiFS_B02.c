@@ -308,7 +308,7 @@ static int xmp_getattr(const char *path, struct stat *stbuf)
             strcat(current_path, "/");
             strcat(current_path, token);
         }
-        if (strncmp(token, "AtoZ_", 6) == 0) //perlu encrypt
+        if (strncmp(token, "AtoZ_", 5) == 0) //perlu encrypt
         {
             encrypt_needed = true;
         }
@@ -403,7 +403,7 @@ static int xmp_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_
             strcat(current_path, "/");
             strcat(current_path, token);
         }
-        if (strncmp(token, "AtoZ_", 6) == 0) //perlu encrypt
+        if (strncmp(token, "AtoZ_", 5) == 0) //perlu encrypt
         {
             encrypt_needed = true;
         }
@@ -565,7 +565,7 @@ static int xmp_mkdir(const char *path, mode_t mode)
     char *token = strtok(path, "/");
     while (token != NULL)
     {
-        if (strncmp(token, "AtoZ_", 6) == 0)
+        if (strncmp(token, "AtoZ_", 5) == 0)
         {
             logInfo1("ENCRYPT1", path);
             break;
@@ -703,7 +703,7 @@ static int xmp_rename(const char *from, const char *to)
     char *token = strtok(from, "/");
     while (token != NULL)
     {
-        if (strncmp(token, "AtoZ_", 6) == 0)
+        if (strncmp(token, "AtoZ_", 5) == 0)
         {
             // logInfo1("ENCRYPT1", path);
             en1 = true;
@@ -722,7 +722,7 @@ static int xmp_rename(const char *from, const char *to)
     char *token1 = strtok(to, "/");
     while (token1 != NULL)
     {
-        if (strncmp(token1, "AtoZ_", 6) == 0)
+        if (strncmp(token1, "AtoZ_", 5) == 0)
         {
 
             en3 = true;
@@ -933,7 +933,7 @@ static int xmp_read(const char *path, char *buf, size_t size, off_t offset, stru
             strcat(current_path, "/");
             strcat(current_path, token);
         }
-        if (strncmp(token, "AtoZ_", 6) == 0) //perlu encrypt
+        if (strncmp(token, "AtoZ_", 5) == 0) //perlu encrypt
         {
             encrypt_needed = true;
         }
